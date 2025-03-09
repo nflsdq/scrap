@@ -5,7 +5,11 @@ const app = express();
 const PORT = 3000;
 
 app.get("/api/scrape", async (req, res) => {
-    const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteer.launch({
+        headless: "new",
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]
+    });
+
     const page = await browser.newPage();
     
     await page.goto("https://pddikti.kemdiktisaintek.go.id/detail-pt/zg_3icnMAaPL1deiDeyfCBFGe1UuKmRv6Gcc94w5VGsMQqQXzV6K8fppmw7TRqsWgBLB6g==", { waitUntil: "networkidle2" });
