@@ -16,7 +16,7 @@ app.get("/api/scrape", async (req, res) => {
 
     // Pilih dropdown pagination dan set ke "semua"
     await page.select("select[name='pagination']", "semua");
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
  // Tunggu agar halaman reload
 
     // Scrape tabel setelah pagination diperbarui
